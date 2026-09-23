@@ -105,9 +105,9 @@ def parse_uploaded_logs(uploaded_files) -> pd.DataFrame:
     return df
 
 def main():
-    st.title("ITV Log Parser - Transaction ID Focus")
+    st.title("Log Parser - Transaction and Rendition ID Focus")
     st.write(
-        "Upload log files. This app extracts only the timestamp, the transaction ID (from t=), "
+        "Upload log files. This app extracts only the timestamp, the transaction ID (from t=), the rendition ID (reid) "
         "and the event marker (excluding 'defaultClick' events)."
     )
 

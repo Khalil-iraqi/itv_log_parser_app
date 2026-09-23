@@ -14,7 +14,7 @@ TIMESTAMP_PATTERN = re.compile(
 TRANSACTION_PATTERN = re.compile(r"\bt=(?P<transaction_id>\d+)\b")
 
 # Rendition ID pattern: look for "reid=" followed by one or more digits.
-RENDITION_PATTERN = re.compile(r"\breid(?P<rendition_id>\d+)\b")
+RENDITION_PATTERN = re.compile(r"\breid=(?P<rendition_id>\d+)\b")
 
 # Event marker can be either a cn= parameter or an "AdProgress" marker or a Duration[...] marker.
 # (We use these to identify an event line.)
@@ -47,7 +47,7 @@ def parse_log_line(line: str) -> dict:
     
     rendition_id = ( 
         rendition_match.group("rendition_id")
-        if renidition_match
+        if rendition_match
         else None 
     )
 
@@ -77,7 +77,7 @@ def parse_log_line(line: str) -> dict:
     return {
         "timestamp": timestamp,
         "transaction_id": transaction_id,
-        "rendition_id": rendition_id
+        "rendition_id": rendition_id,
         "event": event_quartile,
     }
 
